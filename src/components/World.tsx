@@ -2,10 +2,9 @@ import { Canvas } from "@react-three/fiber";
 import { KeyboardControls } from "@react-three/drei";
 import Game from "@/components/Game";
 import Interface from "@/components/Interface";
+import GameLoader from "@/components/GameLoader";
 
-interface IProps {}
-
-const World: React.FC<IProps> = () => {
+const World = () => {
   return (
     <KeyboardControls
       map={[
@@ -21,6 +20,7 @@ const World: React.FC<IProps> = () => {
         <Game />
         <color attach="background" args={["#705549"]} />
       </Canvas>
+      <GameLoader />
       <Interface />
     </KeyboardControls>
   );
