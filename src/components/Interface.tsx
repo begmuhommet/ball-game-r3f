@@ -8,6 +8,8 @@ const btnClasses = "w-10 h-10 border border-white rounded-md transition-colors";
 const activeClasses = "bg-white";
 
 const Interface = () => {
+  const {} = useKeyboardControls();
+
   // Store
   const { status, setStatus, setStartTime } = useCommonStore((state) => ({
     status: state.status,

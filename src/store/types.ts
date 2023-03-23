@@ -17,6 +17,7 @@ export interface ICommonStore {
   endBlockMaterial: MeshStandardMaterial;
   obstacleBlockMaterial: MeshStandardMaterial;
   obstacleMaterial: MeshStandardMaterial;
+  textMaterial: MeshStandardMaterial;
   wallMaterial: MeshStandardMaterial;
 
   setStatus: (newStatus: Statuses) => void;

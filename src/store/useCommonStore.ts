@@ -8,7 +8,7 @@ ColorManagement.legacyMode = false;
 
 const useCommonStore = create(
   subscribeWithSelector<ICommonStore>((set) => ({
-    blockCount: 20,
+    blockCount: 1,
     status: Statuses.Ready,
     startTime: 0,
     endTime: 0,
@@ -18,6 +18,7 @@ const useCommonStore = create(
     endBlockMaterial: new MeshStandardMaterial({ color: "limegreen" }),
     obstacleBlockMaterial: new MeshStandardMaterial({ color: "greenyellow" }),
     obstacleMaterial: new MeshStandardMaterial({ color: "orangered" }),
+    textMaterial: new MeshStandardMaterial(),
     wallMaterial: new MeshStandardMaterial({ color: "gray" }),
 
     setStatus: (newStatus: Statuses) => set(() => ({ status: newStatus })),
