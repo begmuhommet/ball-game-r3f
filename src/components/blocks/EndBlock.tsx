@@ -1,5 +1,5 @@
 import { Mesh, Vector3 } from "three";
-import { Float, useGLTF } from "@react-three/drei";
+import { Float, Text3D, useGLTF } from "@react-three/drei";
 import { BLOCK_SCALE_SIZE } from "@/consts/consts";
 import useCommonStore from "@/store/useCommonStore";
 import { useFrame } from "@react-three/fiber";
@@ -10,6 +10,7 @@ interface IProps {
 
 const EndBlock: React.FC<IProps> = (props) => {
   const { position } = props;
+  const textMaterial = useCommonStore((state) => state.textMaterial);
 
   // Hooks
   useFrame((state) => {
@@ -46,6 +47,17 @@ const EndBlock: React.FC<IProps> = (props) => {
         <primitive object={diamond.scene} position-y={1} />
         <pointLight position={[0, 0.8, 1.5]} intensity={0.5} />
       </Float>
+
+      <Text3D
+        font="/fonts/Montserrat.json"
+        material={textMaterial}
+        size={0.8}
+        height={0.4}
+        position={[-2, 1.8, 0]}
+        castShadow
+      >
+        FINISH
+      </Text3D>
     </group>
   );
 };

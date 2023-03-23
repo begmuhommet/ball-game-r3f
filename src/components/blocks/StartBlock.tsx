@@ -33,6 +33,7 @@ const StartBlock: React.FC<IProps> = (props) => {
           size={0.3}
           height={0.2}
           position={[-1, 1, 0.3]}
+          castShadow
         >
           Ball game
         </Text3D>
