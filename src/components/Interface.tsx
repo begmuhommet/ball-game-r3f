@@ -8,8 +8,6 @@ const btnClasses = "w-10 h-10 border border-white rounded-md transition-colors";
 const activeClasses = "bg-white";
 
 const Interface = () => {
-  const {} = useKeyboardControls();
-
   // Store
   const { status, setStatus, setStartTime } = useCommonStore((state) => ({
     status: state.status,
@@ -24,11 +22,13 @@ const Interface = () => {
   const leftward = useKeyboardControls((state) => state.leftward);
   const rightward = useKeyboardControls((state) => state.rightward);
   const jump = useKeyboardControls((state) => state.jump);
+
   const [subscribeKeys] = useKeyboardControls();
 
   const timeRef = useRef<HTMLDivElement | null>(null);
 
   // Effects
+
   useEffect(() => {
     const unsubscribe = addEffect(() => {
       const status = useCommonStore.getState().status;

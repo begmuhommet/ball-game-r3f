@@ -1,8 +1,8 @@
 import { Canvas } from "@react-three/fiber";
-import { KeyboardControls } from "@react-three/drei";
+import { KeyboardControls, Loader } from "@react-three/drei";
 import Game from "@/components/Game";
 import Interface from "@/components/Interface";
-import GameLoader from "@/components/GameLoader";
+import { Suspense } from "react";
 
 const World = () => {
   return (
@@ -16,12 +16,14 @@ const World = () => {
         { name: "start", keys: ["Enter"] },
       ]}
     >
-      <Canvas shadows camera={{ position: [2, 4, 5] }}>
-        <Game />
-        <color attach="background" args={["#705549"]} />
-      </Canvas>
-      <GameLoader />
-      <Interface />
+      <Suspense fallback={null}>
+        <Canvas shadows camera={{ position: [2, 4, 5] }}>
+          <Game />
+          <color attach="background" args={["#705549"]} />
+        </Canvas>
+        <Interface />
+      </Suspense>
+      <Loader />
     </KeyboardControls>
   );
 };
