@@ -1,7 +1,7 @@
 import Head from "next/head";
 import dynamic from "next/dynamic";
 
-const World = dynamic(() => import("@/components/World"));
+const World = dynamic(() => import("@/components/World"), { ssr: false });
 
 const Home = () => {
   return (

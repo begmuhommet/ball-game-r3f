@@ -1,5 +1,5 @@
 import { useKeyboardControls } from "@react-three/drei";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { addEffect } from "@react-three/fiber";
 import useCommonStore from "@/store/useCommonStore";
 import { Statuses } from "@/store/types";
@@ -16,6 +16,11 @@ const Interface = () => {
     setEndTime: state.setEndTime,
   }));
 
+  // Local state
+  const [audio, setAudio] = useState<HTMLAudioElement | null>(() =>
+    window?.Audio ? new window.Audio("/audio/2.mp3") : null
+  );
+
   // Hooks
   const forward = useKeyboardControls((state) => state.forward);
   const backward = useKeyboardControls((state) => state.backward);
@@ -24,11 +29,9 @@ const Interface = () => {
   const jump = useKeyboardControls((state) => state.jump);
 
   const [subscribeKeys] = useKeyboardControls();
-
   const timeRef = useRef<HTMLDivElement | null>(null);
 
   // Effects
-
   useEffect(() => {
     const unsubscribe = addEffect(() => {
       const status = useCommonStore.getState().status;
@@ -49,6 +52,10 @@ const Interface = () => {
       } else if (status === Statuses.Finished) {
         time = (endTime - startTime) / 1000;
         timeRef.current.textContent = time.toFixed(2);
+        if (audio) {
+          audio.pause();
+          audio.currentTime = 0;
+        }
       }
     });
 
@@ -70,6 +77,11 @@ const Interface = () => {
     if (status === Statuses.Ready) {
       setStatus(Statuses.Started);
       setStartTime(Date.now());
+      if (audio) {
+        audio.volume = 0.2;
+        audio.loop = true;
+        audio.play();
+      }
     }
   };
 

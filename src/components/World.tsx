@@ -19,11 +19,11 @@ const World = () => {
       <Suspense fallback={null}>
         <Canvas shadows camera={{ position: [2, 4, 5] }}>
           <Game />
-          <color attach="background" args={["#705549"]} />
+          <color attach="background" args={["#37343D"]} />
         </Canvas>
-        <Interface />
       </Suspense>
       <Loader />
+      <Interface />
     </KeyboardControls>
   );
 };

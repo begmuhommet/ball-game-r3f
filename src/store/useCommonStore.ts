@@ -8,7 +8,7 @@ ColorManagement.legacyMode = false;
 
 const useCommonStore = create(
   subscribeWithSelector<ICommonStore>((set) => ({
-    blockCount: 1,
+    blockCount: 20,
     status: Statuses.Ready,
     startTime: 0,
     endTime: 0,
