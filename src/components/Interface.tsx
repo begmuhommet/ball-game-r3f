@@ -143,6 +143,14 @@ const Interface = () => {
           }`}
         ></div>
       </div>
+      <a
+        href="https://github.com/begmuhommet/ball-game-r3f"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block absolute bottom-4 left-4 text-blue-200 hover:text-blue-500 transition-colors text-sm"
+      >
+        Source code
+      </a>
     </div>
   );
 };
